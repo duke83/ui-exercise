@@ -1,5 +1,6 @@
 
-<div>
+<div class="form-container">
+  <h3>Add Server</h3>
     <form (ngSubmit)="onSubmit()"  #serverAddForm="ngForm">
   <label for="hostname">Hostname</label>
   <input [(ngModel)]="serverModel.hostname" class="form-control" id="hostName" name="hostName" >

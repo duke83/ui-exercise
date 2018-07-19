@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IServer} from '../types/i-server';
+import { IServer } from '../types/i-server';
 import { ServerService } from 'src/app/server.service';
 
 
@@ -21,12 +21,22 @@ export class ServerListComponent implements OnInit {
         ip: '1.1.1.1.',
         deadline: new Date().getTime(),
         verified: false
-    }
+      }
     );
   }
 
   removeServer(hostname: string) {
-console.log(hostname);
+    console.log(hostname);
+    const idx = this.serverService.servers.findIndex(s => s.hostname === hostname);
+    if (idx > -1) {
+      this.serverService.servers.splice(idx, 1);
+    }
+
+  }
+
+  verifyServer(hostname: string) {
+    const idx = this.serverService.servers.findIndex(s => s.hostname === hostname);
+    this.serverService.servers[idx].verified = true;
   }
 
 }
