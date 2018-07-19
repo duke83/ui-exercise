@@ -1,7 +1,7 @@
-<div>
+<div class="container">
   <h5>Overdue Verifications</h5>
-  <div *ngFor="let row  of serverService.servers">
-    <div *ngIf="row.verified && row.deadline > sysDate">
+  <div *ngFor="let row  of serverService.servers">{{row | json}}
+    <div *ngIf="!row.verified && (row.deadline > sysDate)">
       <div>{{row.hostname}}</div>
       <div>{{row.ip}}</div>
       <div>{{getDifference(row.deadline) }}</div>
