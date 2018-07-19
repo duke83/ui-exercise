@@ -1,4 +1,4 @@
-<table>
+<table class="table">
   <thead>
   <tr>
     <td>Hostname</td>
@@ -7,7 +7,7 @@
     <td>Verification</td>
     <td>Actions</td>
   </tr>
-</thead>
+</thead>  
   <tr *ngFor="let row of serverService.servers">
     <td>{{row.hostname}}</td>
     <td>{{row.ip}}</td>

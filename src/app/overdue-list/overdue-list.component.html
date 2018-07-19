@@ -1,3 +1,10 @@
-<p>
-  overdue-list works!
-</p>
+<div>
+  <h5>Overdue Verifications</h5>
+  <div *ngFor="let row  of serverService.servers">
+    <div *ngIf="row.verified && row.deadline > sysDate">
+      <div>{{row.hostname}}</div>
+      <div>{{row.ip}}</div>
+      <div>{{getDifference(row.deadline) }}</div>
+    </div>
+  </div>
+</div>

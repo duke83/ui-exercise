@@ -19,7 +19,7 @@ export class ServerListComponent implements OnInit {
         hostname: 'hostname',
         description: 'description',
         ip: '1.1.1.1.',
-        deadline: new Date(),
+        deadline: new Date().getTime(),
         verified: false
     }
     );
