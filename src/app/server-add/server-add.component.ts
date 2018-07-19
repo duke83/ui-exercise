@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IServer } from '../types/i-server';
+import { ServerService } from 'src/app/server.service';
 
 @Component({
   selector: 'app-server-add',
@@ -10,7 +11,7 @@ export class ServerAddComponent implements OnInit {
 
   serverModel: IServer;
 
-  constructor() { }
+  constructor(private serverService: ServerService) { }
 
   ngOnInit() {
     this.serverModel = this.newServer();
@@ -18,6 +19,10 @@ export class ServerAddComponent implements OnInit {
 
   onSubmit() {
     console.log(this.serverModel);
+    const newDeadline = new Date(this.serverModel.deadline).getTime();
+    this.serverModel.deadline = newDeadline;
+    this.serverService.servers.push(this.serverModel);
+    this.serverModel = this.newServer();
   }
 
   newServer(): IServer {
@@ -25,7 +30,7 @@ export class ServerAddComponent implements OnInit {
       hostname: '',
       description: '',
       ip: '',
-      deadline: new Date(),
+      deadline: null,
       verified: false
     };
   }
