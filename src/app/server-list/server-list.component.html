@@ -1,0 +1,21 @@
+<table>
+  <thead>
+  <tr>
+    <td>Hostname</td>
+    <td>IP</td>
+    <td>Deadline</td>
+    <td>Verification</td>
+    <td>Actions</td>
+  </tr>
+</thead>
+  <tr *ngFor="let row of servers">
+    <td>{{row.hostname}}</td>
+    <td>{{row.ip}}</td>
+    <td>{{row.deadline | date: 'short'}}</td>
+    <td>{{row.verified?'Verified':'Pending'}}</td>
+    <td><a href="javascript:void(0);" (click)="removeServer(row.hostname)">Remove</a> 
+      <a *ngIf="row.verified===false" href="void" (click)="removeServer(row.hostname)">Verify</a>
+    </td>
+  </tr>
+
+</table>
