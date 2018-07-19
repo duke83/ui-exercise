@@ -8,7 +8,7 @@
     <td>Actions</td>
   </tr>
 </thead>
-  <tr *ngFor="let row of servers">
+  <tr *ngFor="let row of serverService.servers">
     <td>{{row.hostname}}</td>
     <td>{{row.ip}}</td>
     <td>{{row.deadline | date: 'short'}}</td>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IServer} from '../types/i-server';
+import { ServerService } from 'src/app/server.service';
+
 
 @Component({
   selector: 'app-server-list',
@@ -8,12 +10,11 @@ import {IServer} from '../types/i-server';
 })
 export class ServerListComponent implements OnInit {
 
-servers: IServer[] = [];
 
-  constructor() { }
+  constructor(public serverService: ServerService) { }
 
   ngOnInit() {
-    this.servers.push(
+    this.serverService.servers.push(
       {
         hostname: 'hostname',
         description: 'description',
