@@ -6,6 +6,7 @@ import { IServer } from './types/i-server';
 })
 export class ServerService {
   servers: IServer[] = [];
+  showAddForm = false;
 
   constructor() { }
 

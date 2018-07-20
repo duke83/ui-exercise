@@ -1,22 +1,33 @@
-<h3>Server List</h3>
-<table class="table">
-  <thead>
-  <tr>
-    <td>Hostname</td>
-    <td>IP</td>
-    <td>Deadline</td>
-    <td>Verification</td>
-    <td>Actions</td>
-  </tr>
-</thead>  
-  <tr *ngFor="let row of serverService.servers">
-    <td>{{row.hostname}}</td>
-    <td>{{row.ip}}</td>
-    <td>{{row.deadline | date: 'short'}}</td>
-    <td>{{row.verified?'Verified':'Pending'}}</td>
-    <td><a href="javascript:void(0)" (click)="removeServer(row.hostname)">Remove</a> 
-      <a *ngIf="row.verified===false" href="javascript:void(0)" (click)="verifyServer(row.hostname)">Verify</a>
-    </td>
-  </tr>
+<div class="server-list-container">
+  <div class='title'>
+    <span class='server-list-label'>Server List</span>
+    <button (click)="serverService.showAddForm = true">Add Server</button>
+  </div>
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Hostname</td>
+          <td>IP</td>
+          <td>Deadline</td>
+          <td>Verification</td>
+          <td>Actions</td>
+        </tr>
+      </thead>
+      <tr *ngFor="let row of serverService.servers">
+        <td title="row.description">{{row.hostname}}</td>
+        <td>{{row.ip}}</td>
+        <td>{{row.deadline | date: 'short'}}</td>
+        <td>{{row.verified?'Verified':'Pending'}}</td>
+        <td>
+          <a href="javascript:void(0)" (click)="removeServer(row.hostname)">Remove</a>
+          <a *ngIf="row.verified===false" href="javascript:void(0)" (click)="verifyServer(row.hostname)">Verify</a>
+        </td>
+      </tr>
 
-</table>
+    </table>
+  </div>
+  <div class="overdue-container">
+    <app-overdue-list></app-overdue-list>
+  </div>
+</div>

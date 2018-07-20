@@ -11,7 +11,7 @@ export class ServerAddComponent implements OnInit {
 
   serverModel: IServer;
 
-  constructor(private serverService: ServerService) { }
+  constructor(public serverService: ServerService) { }
 
   ngOnInit() {
     this.serverModel = this.newServer();

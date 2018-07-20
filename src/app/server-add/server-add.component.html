@@ -1,19 +1,20 @@
-
-<div class="form-container">
+<div *ngIf="serverService.showAddForm" class="modal-background" (click)="serverService.showAddForm=false"></div>
+<div *ngIf="serverService.showAddForm" class="form-container">
   <h3>Add Server</h3>
-    <form (ngSubmit)="onSubmit()"  #serverAddForm="ngForm">
-  <label for="hostname">Hostname</label>
-  <input [(ngModel)]="serverModel.hostname" class="form-control" id="hostName" name="hostName" >
+  <form (ngSubmit)="onSubmit()" #serverAddForm="ngForm">
+    <label for="hostname">Hostname</label>
+    <input [(ngModel)]="serverModel.hostname" class="form-control" id="hostName" name="hostName">
 
-  <label for="ip">IP</label>
-  <input [(ngModel)]="serverModel.ip" class="form-control" id="ip" name="ip">
-  
-  <label for="deadline">Deadline</label>
-  <input [(ngModel)]="serverModel.deadline" class="form-control" id="deadline" name="deadline" placeholder="MM/DD/YYYY H:m"/>
+    <label for="ip">IP</label>
+    <input [(ngModel)]="serverModel.ip" class="form-control" id="ip" name="ip">
 
-  <label for="description">Description</label>
-  <input [(ngModel)]="serverModel.description" multiple class="form-control" id="description" name="description">
-  
-  <button class="btn btn-success" type="submit">Add Server</button>
+    <label for="deadline">Deadline</label>
+    <input [(ngModel)]="serverModel.deadline" class="form-control" id="deadline" name="deadline" placeholder="MM/DD/YYYY H:m"
+    />
+
+    <label for="description">Description</label>
+    <input [(ngModel)]="serverModel.description" multiple class="form-control" id="description" name="description">
+
+    <button class="btn btn-success" type="submit">Add Server</button>
   </form>
 </div>

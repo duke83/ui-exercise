@@ -16,14 +16,16 @@ export class ServerListComponent implements OnInit {
   ngOnInit() {
     this.serverService.servers.push(
       {
-        hostname: 'hostname',
-        description: 'description',
-        ip: '1.1.1.1.',
+        hostname: 'core',
+        description: 'The central devices we rely on and scan regularly.',
+        ip: '1.2.3.4',
         deadline: new Date().getTime(),
         verified: false
       }
     );
   }
+
+
 
   removeServer(hostname: string) {
     console.log(hostname);

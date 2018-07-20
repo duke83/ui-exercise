@@ -1,14 +1,28 @@
-.form-container{
+.form-container {
     border: 1px solid gray;
-    padding:20px;
-    max-width:400px;
-    margin-top:100px;
+    padding: 20px;
+    width: 400px;
+    position: absolute;
+    top: 150px;
+    left: calc((100vw / 2) - 200px);
+    background-color: white;
+    opacity: 1;
 }
 
-button{
-    margin-top:20px;
+button {
+    margin-top: 20px;
 }
 
-label{
-    margin-top:10px;
+label {
+    margin-top: 10px;
+}
+
+.modal-background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: gray;
+    opacity: 0.3;
 }

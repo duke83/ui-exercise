@@ -1,5 +1,10 @@
-container{
+.overdue-container{
     padding:10px;
     padding-left:20px;
     border: 1px solid gray;   
+}
+
+.title{
+    font-size:larger;
+    font-weight: bold;
 }

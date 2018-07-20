@@ -1,9 +1,36 @@
-thead td{
-    background-color:gray;
+thead td {
+    background-color: gray;
     color: silver;
     padding: 3px;
 }
 
 a {
-    margin-right:4px;
+    margin-right: 4px;
+}
+
+.server-list-container {
+    display: grid;
+    grid-template-columns: 5% 60% 20px 30% 5%;
+    grid-template-rows: auto auto;
+    grid-template-areas: "lside title title title rside" "lside list margin overdue rside"
+}
+
+.title {
+    grid-area: title;
+    display: inline-block;
+    padding: 5px 5px;
+}
+
+.table-container {
+    grid-area: list;
+}
+
+.overdue-container {
+    grid-area: overdue;
+}
+
+.server-list-label {
+    font-size: 24px;
+    font-weight: 500;
+    margin-right: 40px;
 }
