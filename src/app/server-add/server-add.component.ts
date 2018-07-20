@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IServer } from '../types/i-server';
 import { ServerService } from 'src/app/server.service';
 
@@ -8,7 +8,7 @@ import { ServerService } from 'src/app/server.service';
   styleUrls: ['./server-add.component.css']
 })
 export class ServerAddComponent implements OnInit {
-
+ @Input() serverAddForm;
   serverModel: IServer;
 
   constructor(public serverService: ServerService) { }
@@ -22,7 +22,7 @@ export class ServerAddComponent implements OnInit {
     const newDeadline = new Date(this.serverModel.deadline).getTime();
     this.serverModel.deadline = newDeadline;
     this.serverService.servers.push(this.serverModel);
-    this.serverModel = this.newServer();
+    this.serverAddForm.resetForm(); // this.serverModel = this.newServer();
   }
 
   newServer(): IServer {

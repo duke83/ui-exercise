@@ -3,18 +3,20 @@
   <h3>Add Server</h3>
   <form (ngSubmit)="onSubmit()" #serverAddForm="ngForm">
     <label for="hostname">Hostname</label>
-    <input [(ngModel)]="serverModel.hostname" class="form-control" id="hostName" name="hostName" required>
-
+    <input [(ngModel)]="serverModel.hostname" #hostName="ngModel" class="form-control" id="hostName" name="hostName" required>
+    <div [hidden]="hostName.valid || hostName.pristine" class="alert alert-danger">
+      Hostname is required
+    </div>
     <label for="ip">IP</label>
     <input [(ngModel)]="serverModel.ip" class="form-control" id="ip" name="ip" required>
 
     <label for="deadline">Deadline</label>
     <input [(ngModel)]="serverModel.deadline" class="form-control" id="deadline" name="deadline" placeholder="MM/DD/YYYY H:m"
-    required/>
+      required/>
 
     <label for="description">Description</label>
     <input [(ngModel)]="serverModel.description" multiple class="form-control" id="description" name="description" required>
 
-    <button class="btn btn-success" type="submit">Add Server</button>
+    <button class="btn btn-success" [disabled]="!serverAddForm.form.valid" type="submit">Add Server</button>
   </form>
 </div>
